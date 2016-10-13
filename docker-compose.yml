@@ -1,0 +1,6 @@
+version: '2'
+services:
+  gocd-agent:
+    image: myregistry:5000/gocd-agent:stable
+    build:
+      context: ./
