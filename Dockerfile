@@ -39,8 +39,10 @@ RUN \
 
 # PHP 7
 # @desc Build (Composer) only; Run tests in Docker containers as best practice.
-RUN add-apt-repository ppa:ondrej/php; \
-    apt-get -y --force-yes install \
+RUN apt-get install -y language-pack-en-base; \
+    LC_ALL=en_US.UTF-8 add-apt-repository ppa:ondrej/php; \
+    apt-get update -y; \
+    apt-get install -y --force-yes \
     # xml
     libxml2-dev \
     # sqlite
@@ -57,8 +59,7 @@ RUN add-apt-repository ppa:ondrej/php; \
     # gd libs
     libjpeg-dev \
     libfreetype6-dev \
-    libjpeg62-turbo-dev \
-    libpng12-dev
+    libpng12-dev \
     # php
     php7.0 \
     php7.0-common \
